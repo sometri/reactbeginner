@@ -1,26 +1,27 @@
 Install React Router if you haven't already: npm install react-router-dom
 ============
-  // MenuBar.js
+// MenuBar.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const MenuBar = () => {
   const [activeItem, setActiveItem] = useState('home');
+  const history = useHistory();
 
-  const handleItemClick = (itemName) => {
+  const handleItemClick = (itemName, route) => {
     setActiveItem(itemName);
-    // Add logic here to handle menu item click (e.g., navigate to a different page)
+    history.push(route);
   };
 
   return (
     <div className="menu-bar">
-      <Link to="/" className={`menu-item ${activeItem === 'home' ? 'active' : ''}`} onClick={() => handleItemClick('home')}>
+      <Link to="/" className={`menu-item ${activeItem === 'home' ? 'active' : ''}`} onClick={() => handleItemClick('home', '/')}>
         Home
       </Link>
-      <Link to="/about" className={`menu-item ${activeItem === 'about' ? 'active' : ''}`} onClick={() => handleItemClick('about')}>
+      <Link to="/about" className={`menu-item ${activeItem === 'about' ? 'active' : ''}`} onClick={() => handleItemClick('about', '/about')}>
         About
       </Link>
-      <Link to="/contact" className={`menu-item ${activeItem === 'contact' ? 'active' : ''}`} onClick={() => handleItemClick('contact')}>
+      <Link to="/contact" className={`menu-item ${activeItem === 'contact' ? 'active' : ''}`} onClick={() => handleItemClick('contact', '/contact')}>
         Contact
       </Link>
       {/* Add more menu items as needed */}
