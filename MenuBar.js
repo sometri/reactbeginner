@@ -1,5 +1,6 @@
 // MenuBar.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // If using React Router for navigation
 
 const MenuBar = () => {
   const [activeItem, setActiveItem] = useState('home');
@@ -11,24 +12,15 @@ const MenuBar = () => {
 
   return (
     <div className="menu-bar">
-      <div
-        className={`menu-item ${activeItem === 'home' ? 'active' : ''}`}
-        onClick={() => handleItemClick('home')}
-      >
+      <Link to="/" className={`menu-item ${activeItem === 'home' ? 'active' : ''}`} onClick={() => handleItemClick('home')}>
         Home
-      </div>
-      <div
-        className={`menu-item ${activeItem === 'about' ? 'active' : ''}`}
-        onClick={() => handleItemClick('about')}
-      >
+      </Link>
+      <Link to="/about" className={`menu-item ${activeItem === 'about' ? 'active' : ''}`} onClick={() => handleItemClick('about')}>
         About
-      </div>
-      <div
-        className={`menu-item ${activeItem === 'contact' ? 'active' : ''}`}
-        onClick={() => handleItemClick('contact')}
-      >
+      </Link>
+      <Link to="/contact" className={`menu-item ${activeItem === 'contact' ? 'active' : ''}`} onClick={() => handleItemClick('contact')}>
         Contact
-      </div>
+      </Link>
       {/* Add more menu items as needed */}
     </div>
   );
