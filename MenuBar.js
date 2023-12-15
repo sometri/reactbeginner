@@ -1,6 +1,8 @@
-// MenuBar.js
+Install React Router if you haven't already: npm install react-router-dom
+============
+  // MenuBar.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // If using React Router for navigation
+import { Link } from 'react-router-dom';
 
 const MenuBar = () => {
   const [activeItem, setActiveItem] = useState('home');
